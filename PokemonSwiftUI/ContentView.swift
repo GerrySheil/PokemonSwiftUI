@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var vm = PokedexPageViewModel()
+    
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            ZStack {
+                List{
+                   
+                    ForEach(vm.pokedexEntries, id: \.name){ pokedexEntry in
+                        PokedexView(pokedexEntry: pokedexEntry)
+                            .listRowSeparator(.hidden)
+                        
+                    }
+                }
+                .listStyle(.plain)
+            .navigationTitle("Pokedex")
+            }
+            .onAppear{
+                vm.fetchPokedexPage()
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Preview: PreviewProvider{
+    static var previews: some View{
+        ContentView()
+    }
 }
