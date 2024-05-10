@@ -1,4 +1,4 @@
-Submission for the take home test with Grip. I'm using Swift and SwiftUI to make a simple Pokedex app that gives the user a list of pokemon which they can scroll through and then view specific details for each pokemon. 
+Submission for the take home test. I'm using Swift and SwiftUI to make a simple Pokedex app that gives the user a list of pokemon which they can scroll through and then view specific details for each pokemon. 
 
 To achieve this I decided to implement a MVVM architecture pattern to seperate the Data from the UI. We have Data models for Pokemon and Pokedex pages that conform to the JSON structure returned by pokeapi. We then have viewodels that call the network requests and handle the business logic for the ui. 
 
