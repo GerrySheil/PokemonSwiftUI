@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB0435EB2BED5B64004993C6 /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0435EA2BED5B64004993C6 /* PokemonView.swift */; };
+		CB0435ED2BEE30F9004993C6 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0435EC2BEE30F9004993C6 /* StatsView.swift */; };
 		CB2CB1CC2BECCF6700153BB4 /* PokemonSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2CB1CB2BECCF6700153BB4 /* PokemonSwiftUIApp.swift */; };
 		CB2CB1CE2BECCF6700153BB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2CB1CD2BECCF6700153BB4 /* ContentView.swift */; };
 		CB2CB1D02BECCF6900153BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB2CB1CF2BECCF6900153BB4 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		CB0435EA2BED5B64004993C6 /* PokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonView.swift; sourceTree = "<group>"; };
+		CB0435EC2BEE30F9004993C6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		CB2CB1C82BECCF6700153BB4 /* PokemonSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2CB1CB2BECCF6700153BB4 /* PokemonSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSwiftUIApp.swift; sourceTree = "<group>"; };
 		CB2CB1CD2BECCF6700153BB4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				CB2CB20F2BED2DB700153BB4 /* PokedexPageViewModel.swift */,
 				CB2CB2112BED34BA00153BB4 /* PokedexView.swift */,
 				CB0435EA2BED5B64004993C6 /* PokemonView.swift */,
+				CB0435EC2BEE30F9004993C6 /* StatsView.swift */,
 			);
 			path = PokemonSwiftUI;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				CB2CB20A2BED203800153BB4 /* PokemonModel.swift in Sources */,
 				CB2CB1CC2BECCF6700153BB4 /* PokemonSwiftUIApp.swift in Sources */,
 				CB2CB20C2BED269F00153BB4 /* PokedexPageModel.swift in Sources */,
+				CB0435ED2BEE30F9004993C6 /* StatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,32 +14,48 @@ struct PokemonView: View{
     
     
     var body: some View {
-            ZStack {
-                List{
-                    Text("**Name**: \(vm.pokemon.name)")
-                    Text("**DexNo**: \(vm.pokemon.id)")
-                    if !vm.pokemon.types.isEmpty && vm.pokemon.types.count == 2{
-                        Text( "**Types**: \(vm.pokemon.types[0].type.name) \(vm.pokemon.types[1].type.name)")
-                    }else if !vm.pokemon.types.isEmpty{
-                        Text( "**Type**: \(vm.pokemon.types[0].type.name)")
+        ZStack {
+            List{
+                HStack {
+                    Spacer()
+                    AsyncImage(url: URL(string: vm.pokemon.sprites.frontDefault)){image in
+                        image.resizable()
+                    }placeholder: {
+                        ProgressView()
                     }
-                    if !vm.pokemon.stats.isEmpty{
-                        Text("**Stats**: \(vm.pokemon.stats[0].baseStat)")
-                    }
-                    Text("\(vm.pokemon.sprites.frontDefault)")
+                    .frame(width: 200, height: 200, alignment: .center)
+                    Spacer()
                 }
-                .listStyle(.plain)
+                Text("**Name**: \(vm.pokemon.name.capitalized)")
+                Text("**DexNo**: \(vm.pokemon.id)")
+                if !vm.pokemon.types.isEmpty && vm.pokemon.types.count == 2{
+                    Text( "**Types**: \(vm.pokemon.types[0].type.name.capitalized) \(vm.pokemon.types[1].type.name.capitalized)")
+                }else if !vm.pokemon.types.isEmpty{
+                    Text( "**Type**: \(vm.pokemon.types[0].type.name.capitalized)")
+                }
+                if !vm.pokemon.stats.isEmpty{
+                    StatsView(pokemonStats: vm.pokemon.stats)
+                }
+            }
+            .listStyle(.automatic)
             .navigationTitle("Pokedex")
-            }
-            .onAppear{
-                vm.fetchPokemon(pokemonUrl: pokemonURL)
-            }
+            .alert(isPresented: $vm.hasError, error: vm.error){
+                Button(action: {
+                    vm.fetchPokemon(pokemonUrl: pokemonURL)
+                }, label: {
+                    Text("Retry")
+                })
+            }.frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .onAppear{
+                    vm.fetchPokemon(pokemonUrl: pokemonURL)
+                }
         }
-}
-
-
-struct PokemonView_Previews: PreviewProvider{
-    static var previews: some View{
-        PokemonView(pokemonURL: "https://pokeapi.co/api/v2/pokemon/1/")
     }
 }
+    
+    struct PokemonView_Previews: PreviewProvider{
+        static var previews: some View{
+            PokemonView(pokemonURL: "https://pokeapi.co/api/v2/pokemon/1/")
+        }
+    }
+

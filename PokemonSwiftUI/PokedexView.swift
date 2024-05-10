@@ -22,13 +22,6 @@ struct PokedexView: View{
             }, label: {
                 Text("\(pokedexEntry.name.capitalized)")
             })
-//            Button(){
-//                Task{
-//                   await vm.fetchPokemon(pokemonUrl: pokedexEntry.url)
-//                  
-//                }
-//                
-//            }
         }
         .frame(maxWidth: .infinity,
                alignment: .center)

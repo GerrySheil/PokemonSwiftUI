@@ -13,23 +13,40 @@ struct ContentView: View {
     
     
     
+    @State private var i: Int = 0
+    
     var body: some View {
+        
         NavigationView{
+            
             ZStack {
-                List{
-                   
-                    ForEach(vm.pokedexEntries, id: \.name){ pokedexEntry in
-                        PokedexView(pokedexEntry: pokedexEntry)
-                            .listRowSeparator(.hidden)
-                        
+                VStack {
+                    List{
+                            
+                            ForEach(vm.pokedexEntries, id: \.name){ pokedexEntry in
+                                PokedexView(pokedexEntry: pokedexEntry)
+                                    .listRowSeparator(.hidden).onAppear(){
+                                        vm.loadMorePokemon(i: i)
+                                        i += 1
+                                    }
+                                
+                            }
+                        }
+                        .listStyle(.plain)
+                        .navigationTitle("Pokedex")
+                        .alert(isPresented: $vm.hasError, error: vm.error){
+                            Button(action: {
+                                vm.fetchPokedexPage()
+                            }, label: {
+                                Text("Retry")
+                            })
+                    }
+                    if vm.isRefreshing{
+                        ProgressView()
                     }
                 }
-                .listStyle(.plain)
-            .navigationTitle("Pokedex")
-            }
-            .onAppear{
-                vm.fetchPokedexPage()
-            }
+                
+                }
         }
     }
 }
